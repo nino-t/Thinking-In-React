@@ -1,18 +1,63 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+import SearchBar from './components/SearchBar';
+import ProductTable from './components/ProductTable';
+
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      product_categories: [
+        {
+          category: 'Sporting Goods',
+          products: [
+            {
+              name: 'Football',
+              price: '$ 49.99',
+              outStock: false
+            },
+            {
+              name: 'Baseball',
+              price: '$ 9.99',
+              outStock: false
+            },
+            {
+              name: 'Basketball',
+              price: '$ 29.99',
+              outStock: true
+            }            
+          ]
+        },
+        {
+          category: 'Electronics',
+          products: [
+            {
+              name: 'IPod Touch',
+              price: '$ 99.99',
+              outStock: false
+            },
+            {
+              name: 'IPhone 5',
+              price: '$ 399.99',
+              outStock: true
+            },
+            {
+              name: 'Nexus 7',
+              price: '$ 199.99',
+              outStock: false
+            },
+          ]          
+        }
+      ]
+    }    
+  }
   render() {
+    const { product_categories } = this.state;
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="container">
+        <SearchBar />
+        <ProductTable product_categories={product_categories} />
       </div>
     );
   }
