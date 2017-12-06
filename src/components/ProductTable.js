@@ -7,21 +7,19 @@ class ProductTable extends Component {
 		const product_categories = this.props.product_categories;
 		return (
 		  <div className="container product-table-container">
-		  	<table border="1" style={{borderCollapse:"collapse"}}>
-		  		<thead>
-		  			<tr>
-		  				<td>Name</td>
-		  				<td>Price</td>
-		  			</tr>
-		  		</thead>
-		  		<tbody>
+		  	<div className="table-container">
+		  		<ul className="table-thead">
+		  			<li><a href="#">Name</a></li>
+		  			<li><a href="#">Price ($)</a></li>
+		  		</ul>		  		
+		  		<ul className="table-tbody">
 		  			{
 		  				product_categories.map((cateories, index) => (
 		  					<ProductCategoryRow cateories={cateories} key={index} />
 		  				))
-		  			}
-		  		</tbody>
-		  	</table>
+		  			}		  				  			
+		  		</ul>
+		  	</div>
 		  </div>
 		);
 	}
